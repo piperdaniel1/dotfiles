@@ -1,5 +1,8 @@
 set tabstop=4
 set softtabstop=4
+set shiftwidth=4
+set exrc
+set nowrap
 set expandtab
 set smartindent
 set guicursor=

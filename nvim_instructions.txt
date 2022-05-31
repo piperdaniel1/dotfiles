@@ -1,0 +1,7 @@
+1. Put the init.vim in ~/.config/nvim/
+2. Open nvim, type :PlugInstall
+3. Run :checkhealth telescope
+4. Install anything it asks for (probably that grep package)
+5. Install coc languages:
+    -:CocInstall coc-pyright
+6. All done
