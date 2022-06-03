@@ -8,4 +8,5 @@
     -If it asks for ripgrep run: sudo apt-get install ripgrep
 5. Install coc languages:
     -:CocInstall coc-pyright
+    :CocInstall coc-vetur
 6. All done
