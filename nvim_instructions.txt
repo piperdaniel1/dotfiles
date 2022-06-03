@@ -1,4 +1,7 @@
 1. Put the init.vim in ~/.config/nvim/
+1.2. Install vim-plug by running: 
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 2. Open nvim, type :PlugInstall
 3. Run :checkhealth telescope
 4. Install anything it asks for (probably that grep package)
