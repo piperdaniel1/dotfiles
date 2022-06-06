@@ -18,15 +18,18 @@ set cmdheight=2
 set updatetime=50
 set colorcolumn=100
 
-nnoremap ff <cmd>Telescope find_files<cr>
-nnoremap fg <cmd>Telescope live_grep<cr>
-nnoremap fb <cmd>Telescope buffers<cr>
-nnoremap fh <cmd>Telescope help_tags<cr>
+nnoremap zf <cmd>Telescope find_files<cr>
+nnoremap zg <cmd>Telescope live_grep<cr>
+nnoremap zb <cmd>Telescope buffers<cr>
+nnoremap zh <cmd>Telescope help_tags<cr>
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+map <F3> :Copilot enable<cr>
+map <F2> :Copilot disable<cr>
 
 inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<tab>\<c-r>=coc#on_enter()\<CR>"
