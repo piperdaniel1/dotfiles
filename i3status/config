@@ -1,0 +1,82 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 5
+        markup = "pango"
+}
+
+order += "wireless wlp164s0"
+order += "battery 0"
+order += "memory"
+order += "disk /"
+order += "time"
+
+wireless wlp164s0 {
+        format_up = "<span color='#ff30e3'>%essid: %bitrate</span>"
+        format_down = "Wifi disconnected"
+}
+
+ethernet eth0 {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery 0 {
+        format = "%status %percentage <span color='#ffd000'>%emptytime</span>"
+        format_down = "No battery"
+        status_chr = "⚡ CHR"
+        status_bat = "🔋"
+        status_unk = "? UNK"
+        status_full = "☻ <span color='#00ff40'>FULL</span>"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+        last_full_capacity = true
+}
+
+run_watch DHCP {
+        pidfile = "/var/run/dhclient*.pid"
+}
+
+run_watch VPNC {
+        # file containing the PID of a vpnc process
+        pidfile = "/var/run/vpnc/pid"
+}
+
+path_exists VPN {
+        # path exists when a VPN tunnel launched by nmcli/nm-applet is active
+        path = "/proc/sys/net/ipv4/conf/tun0"
+}
+
+time {
+        format = "%a %b %d %-I:%M%p"
+}
+
+tztime local {
+        format = "%m-%d %H:%M:%S"
+}
+
+tztime berlin {
+        format = "%Y-%m-%d %H:%M:%S %Z"
+        timezone = "Europe/Berlin"
+}
+
+load {
+        format = "%5min"
+}
+
+cpu_temperature 0 {
+        format = "T: %degrees °C"
+        path = "/sys/devices/platform/coretemp.0/temp1_input"
+}
+
+memory {
+        format = "<span color='#75baff'>%used</span>"
+}
+
+disk "/" {
+        format = "<span color='#75baff'>%free</span>"
+}
+
+read_file uptime {
+        path = "/proc/uptime"
+}

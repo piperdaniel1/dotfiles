@@ -1,0 +1,5 @@
+*.git
+~/Steam
+snap/
+env/
+__pycache__/
