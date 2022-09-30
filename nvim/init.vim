@@ -58,7 +58,11 @@ Plug 'nvim-telescope/telescope.nvim'
 " Color scheme
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
+" Better python syntax highlighting (mainly for F strings)
 Plug 'vim-python/python-syntax', { 'branch': 'master' }
+
+" Better jsx syntax highlighting
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Install copilot for copilot stuff
 " Plug 'github/copilot.vim'

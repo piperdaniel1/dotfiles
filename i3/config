@@ -191,14 +191,16 @@ bar {
 }
 
 ## Screenshots
-bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
+# bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
+# bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date)"
+# bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date)"
 
 ## Clipboard Screenshots
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+# Selection screenshot
+bindsym Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
 bindsym XF86MonBrightnessDown exec xrandr --output eDP-1 --brightness 0.3
 bindsym XF86MonBrightnessUp exec xrandr --output eDP-1 --brightness 1.0
