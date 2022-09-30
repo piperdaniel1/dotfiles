@@ -1,6 +1,6 @@
 # config-files
 
-Ubuntu 22.10
+Ubuntu 22.10  
 Copy all folders into ~/.config.
 
 # Installations
