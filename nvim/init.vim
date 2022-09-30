@@ -14,10 +14,10 @@ set incsearch
 set nohlsearch
 set hidden
 set noerrorbells
-set scrolloff=8
+set scrolloff=12
 set cmdheight=2
 set updatetime=50
-set colorcolumn=100
+set colorcolumn=89
 
 " Change tab size based on file type
 augroup FileTypeSpecificAutocommands
