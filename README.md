@@ -45,6 +45,13 @@ curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 ```
 
+## Install VimPlug for plugin management
+Run command from here: https://github.com/junegunn/vim-plug/wiki/tutorial
+```
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
 ## Install Lazygit (if you want)
 ```LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')```
 
