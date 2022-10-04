@@ -64,6 +64,9 @@ Plug 'vim-python/python-syntax', { 'branch': 'master' }
 " Better jsx syntax highlighting
 Plug 'maxmellon/vim-jsx-pretty'
 
+" Highlight colors in CSS
+Plug 'ap/vim-css-color', { 'branch': 'master' }
+
 " Install copilot for copilot stuff
 " Plug 'github/copilot.vim'
 call plug#end()
