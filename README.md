@@ -52,6 +52,18 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
+## Install COC extensions:
+First you must install NodeJS for COC to work. Use NVM from here: https://github.com/nvm-sh/nvm
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+Now run these coc installs:
+```
+:CocInstall coc-tsserver // js
+:CocInstall coc-pyright  // python
+```
+
 ## Install Lazygit (if you want)
 ```LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')```
 
