@@ -56,6 +56,10 @@ Run command from here: https://github.com/junegunn/vim-plug/wiki/tutorial
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+In Neovim:
+```
+:PlugInstall
+```
 
 ## Install COC extensions:
 First you must install NodeJS for COC to work. Use NVM from here: https://github.com/nvm-sh/nvm
