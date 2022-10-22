@@ -20,6 +20,11 @@ EndSection
 EOF
 ```
 
+If there are issues with touchpad scrolling the wrong way run ```sudo vi /usr/share/X11/xorg.conf.d/40-libinput.conf``` (you may have to use vi instead of nvim). Add this to the touchpad InputClass.
+```
+Option "NaturalScrolling" "True"
+```
+
 ## i3status
 I think that i3status comes with i3. Config files should have been copied over.
 
