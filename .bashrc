@@ -125,8 +125,10 @@ export SECRET_KEY="\xff\xd6x\xc3\xd2\x91\xc9\xe9\x0e{\x9eF\x82#\xd4\xc9\x14\tx\x
 
 alias depmain="npm run build; firebase deploy; git add .; git commit -m 'deployed'; git push"
 alias depdev="npm run build; firebase hosting:channel:deploy dev; git add .; git commit -m 'deployed'; git push"
-alias done="systemctl suspend"
+alias suspend="systemctl suspend"
 alias off="shutdown now"
+
+alias rosenv="source /opt/ros/humble/setup.bash"
 
 fd () {
   cd $(fdfind -t d | fzf)
