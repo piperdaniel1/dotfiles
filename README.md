@@ -39,7 +39,7 @@ sudo apt install xclip
 Alias is defined in ```.bashrc```
 ```
 sudo apt install fzf
-sudo apt install fd
+sudo apt install fd-find
 ```
 
 ## Install Neovim
