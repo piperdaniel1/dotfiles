@@ -51,9 +51,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -142,4 +142,8 @@ brightness () {
 
 alias pref="nvim ~/.bashrc"
 alias vimpref="nvim ~/.config/nvim/init.vim"
+export PATH="~/Downloads/rakudo-moar-2022.07-01-linux-x86_64-gcc/bin:$PATH"
+export PATH="~/Downloads/rakudo-moar-2022.07-01-linux-x86_64-gcc/share:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 
+. "$HOME/.cargo/env"

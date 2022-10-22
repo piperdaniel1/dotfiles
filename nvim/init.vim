@@ -67,6 +67,9 @@ Plug 'maxmellon/vim-jsx-pretty'
 " Highlight colors in CSS
 Plug 'ap/vim-css-color', { 'branch': 'master' }
 
+" Smooth scrolling
+" Plug 'karb94/neoscroll.nvim'
+
 " Install copilot for copilot stuff
 " Plug 'github/copilot.vim'
 call plug#end()
@@ -74,3 +77,7 @@ call plug#end()
 colorscheme tokyonight
 let g:python_highlight_string_format = 1
 let g:python_highlight_builtin_objs = 1
+
+" Setup smooth scrolling
+" lua require('neoscroll').setup()
+
