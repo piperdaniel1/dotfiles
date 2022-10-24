@@ -35,6 +35,13 @@ sudo apt install fzf
 sudo apt install xclip
 ```
 
+## Get your wallpaper set up
+You can obviously use any image for the wallpaper, this is just the one I am currently using.
+```
+sudo apt install feh
+feh --bg-scale /usr/share/backgrounds/canvas_by_roytanck.jpg
+```
+
 ## Fuzzy finder for traversing file tree structure in bash
 Alias is defined in ```.bashrc```
 ```
