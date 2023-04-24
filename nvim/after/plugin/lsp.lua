@@ -9,19 +9,6 @@ lsp.ensure_installed({
 	'pyright',
 })
 
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<C-y>'] = cmp.mapping.confirm(cmp_select),
-	['<C-Space>'] = cmp.mapping.complete(),
-})
-
-lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
-})
-
 lsp.on_attach(function(client, bufnr)
 	local opts = {buffer = bufnr, remap = false}
 
@@ -38,3 +25,23 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+local cmp = require('cmp')
+local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_mappings = lsp.defaults.cmp_mappings({
+	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+	['<C-y>'] = cmp.mapping.confirm(cmp_select),
+	['<C-Space>'] = cmp.mapping.complete(),
+})
+
+cmp.setup({
+    sources = {
+        { name = "copilot" },
+        { name = "buffer" },
+        { name = "path", keyword_length = 3 },
+        { name = "luasnip", keyword_length = 2 },
+        { name = "nvim_lsp" },
+    },
+    mapping = cmp_mappings,
+})

@@ -17,6 +17,26 @@ return require('packer').startup(function(use)
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
 
+    use({
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
+        end,
+    })
+
+    use({
+      "zbirenbaum/copilot-cmp",
+      after = { "copilot.lua" },
+      config = function ()
+        require("copilot_cmp").setup()
+      end
+    })
+
 	use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v2.x',
@@ -26,15 +46,15 @@ return require('packer').startup(function(use)
 	    {                                      -- Optional
 	      'williamboman/mason.nvim',
 	      run = function()
-		pcall(vim.cmd, 'MasonUpdate')
+            pcall(vim.cmd, 'MasonUpdate')
 	      end,
 	    },
 	    {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
 	    -- Autocompletion
 	    {'hrsh7th/nvim-cmp'},     -- Required
-	    -- {'hrsh7th/cmp-buffer'},     -- Added
-	    -- {'hrsh7th/cmp-path'},     -- Added
+	    {'hrsh7th/cmp-buffer'},     -- Added
+	    {'hrsh7th/cmp-path'},     -- Added
 	    {'hrsh7th/cmp-nvim-lsp'}, -- Required
 	    {'L3MON4D3/LuaSnip'},     -- Required
 	  }
