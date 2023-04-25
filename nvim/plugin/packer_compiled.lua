@@ -95,23 +95,19 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["copilot-cmp"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16copilot_cmp\frequire\0" },
-    load_after = {
-      ["copilot.lua"] = true
-    },
-    loaded = false,
+    config = { "\27LJ\2\ní\1\0\0\a\0\r\0\0246\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\v\0005\3\5\0006\4\0\0'\6\3\0B\4\2\0029\4\4\4=\4\6\0036\4\0\0'\6\3\0B\4\2\0029\4\a\4=\4\b\0036\4\0\0'\6\3\0B\4\2\0029\4\t\4=\4\n\3=\3\f\2B\0\2\1K\0\1\0\15formatters\1\0\0\fpreview\rdeindent\16insert_text\23format_insert_text\nlabel\1\0\0\22format_label_text\23copilot_cmp.format\nsetup\16copilot_cmp\frequire\0" },
+    load_after = {},
+    loaded = true,
     needs_bufread = false,
     path = "/home/daniel/.local/share/nvim/site/pack/packer/opt/copilot-cmp",
     url = "https://github.com/zbirenbaum/copilot-cmp"
   },
   ["copilot.lua"] = {
     after = { "copilot-cmp" },
-    commands = { "Copilot" },
     config = { "\27LJ\2\nu\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\npanel\1\0\1\fenabled\1\15suggestion\1\0\0\1\0\1\fenabled\1\nsetup\fcopilot\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/daniel/.local/share/nvim/site/pack/packer/opt/copilot.lua",
+    loaded = true,
+    only_config = true,
+    path = "/home/daniel/.local/share/nvim/site/pack/packer/start/copilot.lua",
     url = "https://github.com/zbirenbaum/copilot.lua"
   },
   harpoon = {
@@ -174,6 +170,11 @@ _G.packer_plugins = {
     path = "/home/daniel/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  ["vim-css-color"] = {
+    loaded = true,
+    path = "/home/daniel/.local/share/nvim/site/pack/packer/start/vim-css-color",
+    url = "https://github.com/ap/vim-css-color"
+  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/daniel/.local/share/nvim/site/pack/packer/start/vim-fugitive",
@@ -182,25 +183,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: copilot.lua
+time([[Config for copilot.lua]], true)
+try_loadstring("\27LJ\2\nu\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\npanel\1\0\1\fenabled\1\15suggestion\1\0\0\1\0\1\fenabled\1\nsetup\fcopilot\frequire\0", "config", "copilot.lua")
+time([[Config for copilot.lua]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd copilot-cmp ]]
 
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Copilot', function(cmdargs)
-          require('packer.load')({'copilot.lua'}, { cmd = 'Copilot', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'copilot.lua'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Copilot ', 'cmdline')
-      end})
-time([[Defining lazy-load commands]], false)
+-- Config for: copilot-cmp
+try_loadstring("\27LJ\2\ní\1\0\0\a\0\r\0\0246\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\v\0005\3\5\0006\4\0\0'\6\3\0B\4\2\0029\4\4\4=\4\6\0036\4\0\0'\6\3\0B\4\2\0029\4\a\4=\4\b\0036\4\0\0'\6\3\0B\4\2\0029\4\t\4=\4\n\3=\3\f\2B\0\2\1K\0\1\0\15formatters\1\0\0\fpreview\rdeindent\16insert_text\23format_insert_text\nlabel\1\0\0\22format_label_text\23copilot_cmp.format\nsetup\16copilot_cmp\frequire\0", "config", "copilot-cmp")
 
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Event lazy-loads
-time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'copilot.lua'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-time([[Defining lazy-load event autocommands]], false)
-vim.cmd("augroup END")
+time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
