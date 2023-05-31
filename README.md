@@ -30,9 +30,11 @@ I think that i3status comes with i3. Config files should have been copied over.
 
 ## screenshots
 Hotkeys are mapped in ```i3/config```. Get dependencies:
+`maim` takes the screenshots, `xclip` saves them to the clipboard. `xdotool` is only neccessary if you are capturing specific windows.
 ```
-sudo apt install fzf
-sudo apt install xclip
+sudo pacman -S maim xclip
+# optionally
+sudo pacman -S xdotool
 ```
 
 ## Get your wallpaper set up
