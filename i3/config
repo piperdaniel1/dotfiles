@@ -24,14 +24,14 @@ font pango:Source Code Pro 16px
 exec --no-startup-id dex --autostart --environment i3
 
 # change the background
-exec feh --bg-scale /usr/share/backgrounds/canvas_by_roytanck.jpg
+exec feh --bg-scale /usr/share/backgrounds/pink_sunset.jpg
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -71,6 +71,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec --no-startup-id dmenu_run
+
 # A more modern dmenu replacement is rofi:
 # bindsym $mod+d exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -146,6 +147,7 @@ set $ws7 " 7 "
 set $ws8 " 8 "
 set $ws9 " 9 "
 set $ws10 " 10 "
+set $wspia " PIA "
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -220,24 +222,42 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #        background #001014
+#bar {
+#    status_command i3status
+#    padding 4px 8px 4px 0px
+#    separator_symbol " ║ "
+#    #tray_output none
+#    #separator_symbol " ■ "
+#    colors {
+#        background #02252e        
+#        separator #ff0000
+#        #                  border  background text
+#        focused_workspace  #4c7899 #285577    #ffffff
+#        active_workspace   #333333 #5f676a    #ffffff
+#        inactive_workspace #333333 #222222    #ffffff 
+#    }
+#}
 bar {
     status_command i3status
     padding 4px 8px 4px 0px
+    position bottom
     separator_symbol " ║ "
-    tray_output none
-    #separator_symbol " ■ "
     colors {
-        background #02252e        
-        separator #ff0000
+        background #222222
+        #background #152e17
+        #separator #ff0000
+        separator #e8e11e
         #                  border  background text
-        focused_workspace  #4c7899 #285577    #ffffff
-        active_workspace   #333333 #5f676a    #ffffff
-        inactive_workspace #333333 #222222    #ffffff 
+        focused_workspace  #ba43a8 #e8e11e    #000000
+        active_workspace   #612f59 #222222    #ffffff
+        inactive_workspace #612f59 #222222    #ffffff 
     }
 }
 
 default_border pixel 1
 default_floating_border pixel 1
+
+gaps inner 6
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
@@ -249,6 +269,9 @@ default_floating_border pixel 1
 #
 # Please remove the following exec line:
 #######################################################################
-exec i3-config-wizard
+# exec i3-config-wizard
 
 exec xrdb .Xresource
+
+# open pia-client in workspace 10
+# exec --no-startup-id i3-msg 'workspace $wspia; exec pia-client'
